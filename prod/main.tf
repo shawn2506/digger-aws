@@ -11,7 +11,7 @@ terraform {
     dynamodb_table = "digger-locktable-quickstart-aws"      # Change if a different DynamoDB table name was used for backend
     */
     key    = "terraform/state"
-    region = "us-east-1"
+    region = "ap-south-1"
   }
 }
 
