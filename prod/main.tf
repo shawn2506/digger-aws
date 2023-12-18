@@ -6,12 +6,12 @@ terraform {
     }
   }
     backend "s3" {
-    bucket = "digger-s3backend-quickstart-aws"              # Change if a different S3 bucket name was used for the backend 
+    bucket = "shonry-bucket-zeta"              # Change if a different S3 bucket name was used for the backend 
     /* Un-comment to use DynamoDB state locking
     dynamodb_table = "digger-locktable-quickstart-aws"      # Change if a different DynamoDB table name was used for backend
     */
     key    = "terraform/state"
-    region = "us-east-1"
+    region = "ap-south-1"
   }
 }
 
@@ -47,13 +47,14 @@ resource "aws_security_group" "security_group" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 }
+# Test commit
 
-resource "aws_instance" "vm_instance" {
-  ami             = "ami-05c13eab67c5d8861"                   # us-east-1 Amazon Linux 2023 AMI 2023.2.20231030.1 x86_64 HVM kernel-6.1
-  instance_type   = "t2.micro"
-  subnet_id       = aws_subnet.vpc_subnet.id
-  security_groups = [aws_security_group.security_group.id]
-  tags = {
-    Name = "terraform-instance"
-  }
-}
+# resource "aws_instance" "vm_instance" {
+#   ami             = "ami-05c13eab67c5d8861"                   # us-east-1 Amazon Linux 2023 AMI 2023.2.20231030.1 x86_64 HVM kernel-6.1
+#   instance_type   = "t2.micro"
+#   subnet_id       = aws_subnet.vpc_subnet.id
+#   security_groups = [aws_security_group.security_group.id]
+#   tags = {
+#     Name = "terraform-instance"
+#   }
+# }
